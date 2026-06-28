@@ -112,12 +112,14 @@ const Register = () => {
           </p>
 
         </div>
-        
+
         {/* google */}
         <div>
-            {/* GOOGLE */}
+          {/* GOOGLE */}
           <button
-          onClick={()=>window.location.href='http://localhost:5000/api/auth/google'}
+            onClick={() =>
+              window.location.href = `${import.meta.env.VITE_API_URL}/api/auth/google`
+            }
             type="button"
             className="w-full mb-6 cursor-pointer flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/70 text-black py-3 hover:bg-white/50 transition"
           >
