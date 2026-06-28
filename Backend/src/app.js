@@ -10,11 +10,12 @@ const app = express();
 
 app.use(
   cors({
-   origin: [
-        "http://localhost:5173",
-       "https://insight-flow-ai-lake.vercel.app",
-    ],
+  //  origin: [
+  //       "http://localhost:5173",
+  //      "https://insight-flow-ai-lake.vercel.app",
+  //   ],
     credentials: true,
+     origin: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   }),
 );
@@ -27,8 +28,9 @@ app.use("/uploads", express.static("uploads"));
 app.get("/", (req, res) => {
   res.json("server is running");
 });
+app.use(passport.initialize());
 app.use("/api/auth", authRouter);
 app.use("/api/chat", chatRouter);
-app.use(passport.initialize());
+
 
 export default app;
